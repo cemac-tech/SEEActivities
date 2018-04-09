@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>SEE Activities Map</title>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 1024px;
+        width: 1024px;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      /* html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      } */
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+
+      // This example displays a marker at the center of Australia.
+      // When the user clicks the marker, an info window opens.
+      // The maximum width of the info window is set to 200 pixels.
+
+      function initMap() {
+        var maxWth = 400;
+        var DACCIWA_loc = {lat: 5.316667, lng: -4.033333};
+        var centre = {lat: 0.0, lng: 0.0};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 2,
+          center: centre
+        });
+
+        var contentString = '<div id="content">'+
+            '<h1>DACCIWA</h1>'+
+            '<h3>(Dynamics-aerosol-chemistry-cloud interactions in West Africa)</h3>'+
+            '<p style="text-align:justify">DACCIWA will quantify the influence of \
+             anthropogenic and natural emissions \
+             on the atmospheric composition over South West Africa and assess their impact \
+             on human and ecosystem health and agricultural productivity. It will quantify \
+             the coupling between aerosols and clouds and identify controls on the formation \
+             and persistence of low-level clouds. Further it will identify meteorological \
+             controls on precipitation, focusing the transition from stratus to convective \
+             clouds and the forcing from weather systems. DACCIWA will quantify the two way \
+             cloud and aerosol impacts on the radiation and energy budgets from the cloud \
+             scale to the scale of the West African monsoon circulation. State-of-the-art \
+             meteorological, chemistry and air-quality models, satellite retrievals of clouds, \
+             precipitation, aerosols and radiation will be assessed in close collaboration with \
+             operational centres and research findings will be communicated to policy-makers, \
+             scientists, operational centres, students, and general public using a graded \
+             communication strategy. </p>'+
+             `<img src="../static/DACCIWA.jpg" alt="DACCIWA" style="width:${maxWth}px;">`+
+            '<p><b>Institute: </b>ICAS</p>'+
+            '<p><b>SEE members: </b><a href="www.see.leeds.ac.uk/people/j.marsham">John Marsham</a>, \
+            <a href="www.see.leeds.ac.uk/people/d.parker">Doug Parker</a></p>'+
+            '<p><b>Project duration: </b>Dec 2013 -- Nov 2018</p>'+
+            '</div>';
+
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString,
+          maxWidth: maxWth
+        });
+
+        var marker = new google.maps.Marker({
+          position: DACCIWA_loc,
+          map: map,
+          title: 'DACCIWA'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKpRfpvrgnFXABOW1jTqkfoRObgfbTk7I&callback=initMap">
+    </script>
+  </body>
+</html>
