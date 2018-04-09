@@ -28,7 +28,8 @@
       // The maximum width of the info window is set to 200 pixels.
 
       function initMap() {
-        var maxWth = 400;
+        var maxWth = 700;
+        var maxWthImg = maxWth - 50;
         var DACCIWA_loc = {lat: 5.316667, lng: -4.033333};
         var centre = {lat: 0.0, lng: 0.0};
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -54,11 +55,18 @@
              operational centres and research findings will be communicated to policy-makers, \
              scientists, operational centres, students, and general public using a graded \
              communication strategy. </p>'+
-             `<img src="../static/DACCIWA.jpg" alt="DACCIWA" style="width:${maxWth}px;">`+
+             `<img src="../static/DACCIWA.jpg" alt="DACCIWA" style="width:${maxWthImg}px;">`+
             '<p><b>Institute: </b>ICAS</p>'+
-            '<p><b>SEE members: </b><a href="www.see.leeds.ac.uk/people/j.marsham">John Marsham</a>, \
-            <a href="www.see.leeds.ac.uk/people/d.parker">Doug Parker</a></p>'+
+            '<p><b>SEE members: </b><a href="https://www.see.leeds.ac.uk/people/j.marsham" \
+             target="_blank">John Marsham</a>, <a href="https://www.see.leeds.ac.uk/people/d.parker" \
+             target="_blank">Doug Parker</a></p>'+
+            '<p><b>Other affiliations: </b>Met Office (UK), Obafemi Awolowo University (Nigeria), \
+             University of Manchester (UK), University of Reading (UK)</p>'+
             '<p><b>Project duration: </b>Dec 2013 -- Nov 2018</p>'+
+            '<p><b>Location(s): </b>West Africa</p>'+
+            '<p><b>Funder(s): </b>EU-FP7</p>'+
+            '<p><b>Useful links: </b><a href="http://www.dacciwa.eu" \
+             target="_blank">www.dacciwa.eu</a></p>'+
             '</div>';
 
         var infowindow = new google.maps.InfoWindow({
